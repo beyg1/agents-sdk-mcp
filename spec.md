@@ -27,7 +27,26 @@ Here's how all the pieces fit together:
                                                   └─────────────────┘
 ```
 
-## Component Specifications
+## Components Overview
+
+**Main Entry Point** (`main.py`): The main application launcher that configures AI settings, connects to MCP servers, and starts the chat interface.
+
+**MCP Client** (`mcp_client.py`): Remote control system that connects AI agents to MCP servers and enables tool usage over network connections.
+
+**MCP Server** (`mcp_server.py`): Document management server that provides tools for reading, editing, and managing documents to AI agents.
+
+**Agent Service** (`core/agent_service.py`): Bridge component that translates MCP tools into OpenAI Agents SDK format for seamless integration.
+
+**Chat Interface** (`core/chat.py`): Basic chat system that handles message processing and response generation between users and AI agents.
+
+**CLI Chat** (`core/cli_chat.py`): Advanced chat processor that handles special commands, document mentions, and context injection.
+
+**CLI Application** (`core/cli.py`): Rich terminal interface with auto-completion, command hints, and intelligent user experience features.
+
+**Tool Manager** (`core/tools.py`): Central coordinator that manages tools from multiple MCP clients and routes requests appropriately.
+
+
+## Components Specifications
 
 ### 1. Main Entry Point (`main.py`)
 
