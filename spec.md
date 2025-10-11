@@ -277,41 +277,6 @@ Document Mention → Web Address → MCP Client → Server Storage → Content L
 5. **Content Loading**: Retrieves the actual document content
 6. **Context Addition**: Adds the document content to your message as helpful context for the AI
 
-## Setup and Configuration
-
-Here's how to get this project running on your computer - it's actually quite straightforward!
-
-### What You Need Before Starting
-- **Python Environment**: Uses `uv` (a fast Python package manager)
-- **AI Libraries**: OpenAI Agents SDK for the AI functionality
-- **Tool Libraries**: MCP (Model Context Protocol) libraries for tool connections
-- **AI Access**: A Gemini API key (free tier available)
-
-### Step-by-Step Installation
-
-1. **Create Project**:
-   ```bash
-   uv init agents-sdk-mcp
-   ```
-   This creates a new project folder with all the basic files.
-
-2. **Activate Environment**:
-   ```bash
-   source .venv/bin/activate
-   ```
-   This turns on your Python environment (you'll need to do this every time you work on the project).
-
-3. **Setup VS Code**:
-   - Open VS Code
-   - Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on Mac)
-   - Type "Python: Select Interpreter"
-   - Choose the `.venv` path from your project folder
-
-4. **Install Libraries**:
-   ```bash
-   uv add mcp uvicorn openai-agents prompt-toolkit
-   ```
-   This downloads and installs all the necessary packages.
 
 ### Configuration (The Important Part!)
 
@@ -319,7 +284,7 @@ Here's how to get this project running on your computer - it's actually quite st
 
 ```bash
 # Your AI Model Settings - Put these in .env file:
-LLM_MODEL=gemini-pro
+LLM_MODEL="models/gemini-flash-latest"
 LLM_MODEL_API_KEY=your_actual_gemini_api_key_here
 LLM_CHAT_COMPLETION_URL=https://generativelanguage.googleapis.com/v1beta/openai/
 ```
@@ -423,11 +388,3 @@ This **Agents SDK MCP Project** is your **complete learning playground** for und
 - ✅ **How to build smart chat interfaces** (CLI with auto-complete)
 - ✅ **How to manage complex software systems** (multiple components working together)
 - ✅ **How professionals structure code** (separation of concerns, error handling)
-
-**Perfect for students** because:
-- Uses **free Gemini API** (no big costs)
-- **Clear, well-organized code** (easy to understand)
-- **Real-world patterns** (actually used in industry)
-- **Extensible design** (can grow with your skills)
-
-Start by reading the main.py file, then explore each component. The code is written to be **educational** - take your time to understand each part! 🚀
