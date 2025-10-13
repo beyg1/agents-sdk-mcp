@@ -6,3 +6,5 @@ source .venv/bin/activate to create the virtual environment.
 ctrl + shift + p and copy .venv path to python interpretor there.
 uv add mcp uvicorn openai-agents prompt-toolkit to add packages and run the cli project.
 
+run the mcp server by "uv run uvicorn mcp_server:mcp_app --reload" and then 
+uv run main.py to run cli chat.

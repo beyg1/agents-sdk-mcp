@@ -11,8 +11,21 @@ docs = {
     "spec.txt": "These specifications define the technical requirements for the equipment.",
 }
 
+
 # TODO: Write a tool to read a doc
+@mcp.tool()
+async def read_docs(doc_id:str)->str:
+    return docs[doc_id]
+
 # TODO: Write a tool to edit a doc
+@mcp.tool()
+async def edit_docs(doc_id:str, new_content:str)->str:
+    docs[doc_id] = new_content
+    return "Document edited successfully."
+
+
+
+
 # TODO: Write a resource to return all doc id's
 # TODO: Write a resource to return the contents of a particular doc
 # TODO: Write a prompt to rewrite a doc in markdown format
