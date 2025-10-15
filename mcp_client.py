@@ -33,13 +33,16 @@ class MCPClient:
         return self._session
 
     async def list_tools(self) -> types.ListToolsResult | list[None]:
-        # TODO: Return a list of tools defined by the MCP server
-        return []
+                                        # TODO: Return a list of tools defined by the MCP server
+        response = await self.session().list_tools()
+        return response.tools
+
 
     async def call_tool(
         self, tool_name: str, tool_input: dict
     ) -> types.CallToolResult | None:
-        # TODO: Call a particular tool and return the result
+                                        # TODO: Call a particular tool and return the result
+        tool = await self.session().get_tool(tool_name,tool_input)
         return None
 
     async def list_prompts(self) -> list[types.Prompt]:
@@ -71,7 +74,13 @@ async def main():
     async with MCPClient(
         server_url="http://localhost:8000/mcp/",
     ) as _client:
-        pass
+        tools = await _client.list_tools()
+        print("\nTools:")
+        print(tools)
+        print("\nCalling Tool:")
+        tool_result = await _client.call_tool("read_docs", {"doc_id": "deposition.md"})
+        print(tool_result) 
+
 
 
 if __name__ == "__main__":
