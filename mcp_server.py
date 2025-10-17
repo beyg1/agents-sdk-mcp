@@ -1,4 +1,5 @@
 from mcp.server.fastmcp import FastMCP
+from pydantic import Field
 
 mcp = FastMCP("DocumentMCP", stateless_http=True)
 
@@ -13,15 +14,31 @@ docs = {
 
 
 # TODO: Write a tool to read a doc
-@mcp.tool()
-async def read_docs(doc_id:str)->str:
+@mcp.tool(
+    name="read_docs",
+    description="Read the contents of a document and return it as a string."
+)
+def read_document(
+    doc_id: str = Field(description="Id of the document to read")
+):
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
     return docs[doc_id]
 
 # TODO: Write a tool to edit a doc
-@mcp.tool()
-async def edit_docs(doc_id:str, new_content:str)->str:
-    docs[doc_id] = new_content
-    return "Document edited successfully."
+@mcp.tool(
+    name="edit_docs",
+    description="Edit a document by replacing a string in the document's content with new text."
+)
+def edit_document(
+    doc_id: str = Field(description="Id of the document to be edited"),
+    old_str: str = Field(description="The text to replace. Must match exactly."),
+    new_str: str = Field(description="The new text to insert.")
+):
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    docs[doc_id] = docs[doc_id].replace(old_str, new_str)
+    return f"Successfully updated document {doc_id}"
 
 
 
