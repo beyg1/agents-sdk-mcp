@@ -32,16 +32,16 @@ class MCPClient:
             )
         return self._session
 
-    async def list_tools(self) -> types.ListToolsResult | list[None]:
-                                        # TODO: Return a list of tools defined by the MCP server
+                                              # TODO: Return a list of tools defined by the MCP server
+    async def list_tools(self) -> types.ListToolsResult | list[None]:                                        
         response = await self.session().list_tools()
         return response.tools
 
+                                              # TODO: Call a particular tool and return the result
 
     async def call_tool(
         self, tool_name: str, tool_input: dict
-    ) -> types.CallToolResult | None:
-                                        # TODO: Call a particular tool and return the result
+    ) -> types.CallToolResult | None:                                        
         tool = await self.session().get_tool(tool_name,tool_input)
         return None
 
