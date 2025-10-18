@@ -8,3 +8,22 @@ uv add mcp uvicorn openai-agents prompt-toolkit to add packages and run the cli 
 
 run the mcp server by "uv run uvicorn mcp_server:mcp_app --reload" and then 
 uv run main.py to run cli chat.
+
+                    The Design:
+main.py is responsible for the cli chatbot and runs by uv run main.py
+
+mcp_server is the mcp server it must run parralel with chatbot so the agent can access the mcp server
+it runs by uv run uvicorn mcp_server:mcp_app --reload
+2 tools have been written and learnt in panaversity course 
+1. read_docs
+2. edit_docs
+
+mcp_client is the client which connects the cli chatbot app with mcp server
+you can check if it works by uv run mcp_client.py and it should show the tools of the MCP
+2 tools have been written and learnt in panaversity course 
+1. list_tools
+2. call_tool
+
+There are more todo tools if one is comfortable to work on it.
+
+                    
