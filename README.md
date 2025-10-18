@@ -24,6 +24,15 @@ you can check if it works by uv run mcp_client.py and it should show the tools o
 1. list_tools
 2. call_tool
 
-There are more todo tools if one is comfortable to work on it.
+                     Since Tools are done now we will shift to Resources ->
+mcp_server write a function for listing Resources and a function to read and return content of
+a resource. It can have 2 types of content. text & binary (contain raw binary data encoded in base64. 
+These are suitable for Images, PDFs, Audio files Video files and Other non-text formats).
+
+mcp_client  write a function that can read a resource and return it's content after parsing.
+For testing Postman is recommended. but in cli chat "@" should show the resources instead of using a toolcall
+
+
+
 
                     
