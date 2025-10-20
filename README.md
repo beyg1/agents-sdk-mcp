@@ -33,6 +33,6 @@ mcp_client  write a function that can read a resource and return it's content af
 For testing Postman is recommended. but in cli chat "@" should show the resources instead of using a toolcall
 
 
-
+                     After Tools & Resources only Prompts remain to work on any MCP
 
                     
