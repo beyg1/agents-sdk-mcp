@@ -153,7 +153,7 @@ Prompts are pre-defined templates that help users get better results from the AI
 - **Server-side**: The MCP server can define standard prompts.
 - **Client-side**: The client can fetch and use these prompts to guide the AI's responses.
 
-This feature is useful for standardizing interactions, such as summarizing documents or rewriting in a specific format.
+In the CLI chat, prefix with "/" to list or access prompts.
 
 ## Contributing and Learning
 
