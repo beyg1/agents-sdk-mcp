@@ -70,23 +70,23 @@ Here's a Mermaid diagram illustrating the data flow and how MCP primitives (tool
 
 ```mermaid
 graph TD
-    A[User Input] --> B[CLI Chatbot<br/>(main.py)]
-    B --> C[MCP Client<br/>(mcp_client.py)]
-    C --> D[MCP Server<br/>(mcp_server.py)]
-    D --> E[Tools<br/>(e.g., read_docs, edit_docs)]
-    D --> F[Resources<br/>(e.g., docs://documents)]
-    D --> G[Prompts<br/>(e.g., /summarize)]
-    E --> H[AI Model<br/>(Gemini via OpenAI SDK)]
+    A[User Input] --> B["CLI Chatbot\n(main.py)"]
+    B --> C["MCP Client\n(mcp_client.py)"]
+    C --> D["MCP Server\n(mcp_server.py)"]
+    D --> E["Tools\n(e.g., read_docs, edit_docs)"]
+    D --> F["Resources\n(e.g., docs://documents)"]
+    D --> G["Prompts\n(e.g., /summarize)"]
+    E --> H["AI Model\n(Gemini via OpenAI SDK)"]
     F --> H
     G --> H
-    H --> I[Response back to User]
+    H --> I["Response back to User"]
 
     subgraph "MCP Primitives"
         E
         F
         G
     end
-```
+
 
 This diagram shows how user input flows through the system and how the AI leverages MCP primitives to perform actions, access data, and follow templates for enhanced responses.
 
