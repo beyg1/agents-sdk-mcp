@@ -68,7 +68,6 @@ The project consists of three main components:
 ### Visual Architecture Overview
 Here's a Mermaid diagram illustrating the data flow and how MCP primitives (tools, resources, prompts) integrate:
 
-```mermaid
 graph TD
     A[User Input] --> B["CLI Chatbot\n(main.py)"]
     B --> C["MCP Client\n(mcp_client.py)"]
@@ -86,6 +85,7 @@ graph TD
         F
         G
     end
+    
 
 
 This diagram shows how user input flows through the system and how the AI leverages MCP primitives to perform actions, access data, and follow templates for enhanced responses.
