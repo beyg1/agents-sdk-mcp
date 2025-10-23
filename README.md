@@ -85,7 +85,8 @@ graph TD
         E
         F
         G
-    end```
+    end
+```
 
 
 This diagram shows how user input flows through the system and how the AI leverages MCP primitives to perform actions, access data, and follow templates for enhanced responses.
