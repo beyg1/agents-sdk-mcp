@@ -1,25 +1,20 @@
 # Agents SDK MCP Project
 
-This project is an implementation of the **Model Context Protocol (MCP)** using the OpenAI Agents SDK, but configured to leverage the free Gemini API from Google AI. It's designed as a learning resource for students interested in AI agents, MCPs, and integrating large language models (LLMs) with external tools and data sources.
+This project is an implementation of the **Model Context Protocol (MCP)** using the OpenAI Agents SDK, but configured to leverage the free Gemini API from Google AI. 
 
-## What is MCP?
-
-MCP (Model Context Protocol) is a standard for connecting AI models to external data sources, tools, and resources. This allows agents to interact with the world beyond just text generation, enabling tasks like reading documents, editing files, and accessing structured data.
 
 ### Why MCP Matters for Beginners
-As a student, think of MCP as the "bridge" that turns your AI from a simple chatbot into a powerful assistant. Without MCP, AI models like Gemini or GPT can only generate text based on what they've been trained on. But with MCP's core primitives—**tools**, **resources**, and **prompts**—your AI can:
-- **Perform Actions**: Use tools to read, edit, or manipulate data in real-time.
-- **Access Data**: Fetch resources like documents or databases to inform responses.
-- **Follow Templates**: Use prompts to ensure consistent, high-quality outputs for common tasks.
 
+As a student, think of MCP as the "bridge" that turns your AI from a simple chatbot into a powerful assistant. Without MCP, AI models like Gemini or GPT can only generate text based on what they've been trained on. But with MCP's core primitives—**tools**, **resources**, and **prompts**—your AI can:
+- **Perform Actions**: Use TOOLS to read, edit, or manipulate data in real-time.
+- **Access Data**: Fetch RESOURCES like documents or databases to get accurate responses.
+- **Follow Templates**: Use PROMPTS to ensure consistent, high-quality outputs for common tasks.
 This design is crucial because it enables AI to handle real-world scenarios, such as automating document processing or integrating with APIs, making it a foundational skill for building advanced AI applications.
 
-In this project, we build a simple MCP server that provides tools for document management and a CLI chatbot that uses these tools via an MCP client. By the end, you'll understand how to set up and extend your own MCP-based system.
 
 ## Prerequisites
 
 Before getting started, ensure you have:
-
 - Python 3.13 or higher
 - `uv` package manager (for managing dependencies and virtual environments)
 - A Google AI API key (free tier available for Gemini models)
@@ -65,6 +60,7 @@ The project consists of three main components:
 - **MCP Server (`mcp_server.py`)**: Provides tools and resources for the agent.
 - **MCP Client (`mcp_client.py`)**: Connects the chatbot to the MCP server.
 
+
 ### Visual Architecture Overview
 Here's a Mermaid diagram illustrating the data flow and how MCP primitives (tools, resources, prompts) integrate:
 
@@ -89,9 +85,8 @@ graph TD
 ```
 
 
-This diagram shows how user input flows through the system and how the AI leverages MCP primitives to perform actions, access data, and follow templates for enhanced responses.
-
 The MCP server runs on `http://localhost:8000/mcp/` and must be started before the chatbot for the integration to work.
+
 
 ## Running the Project
 
@@ -112,6 +107,7 @@ The MCP server runs on `http://localhost:8000/mcp/` and must be started before t
    uv run mcp_client.py
    ```
    - This will list available tools and demonstrate calling one (e.g., reading a document).
+
 
 ## Design Details
 
@@ -143,6 +139,7 @@ This client manages communication:
 
 **Example**: When you type "@docs://deposition.md" in the chat, the client fetches the document content from the server and injects it into the AI's context.
 
+
 ## Tools Implementation
 
 Tools are the "actions" your AI can take, like functions in a program. The AI decides when to call them based on user input. Below are examples with step-by-step breakdowns.
@@ -173,6 +170,7 @@ Tools are the "actions" your AI can take, like functions in a program. The AI de
 
 These tools are powered by the LLM (Gemini), allowing the AI to reason and execute actions dynamically.
 
+
 ## Resources
 
 Resources are like "data endpoints" that give AI access to information, such as files or databases, without hardcoding everything.
@@ -200,6 +198,7 @@ Resources are like "data endpoints" that give AI access to information, such as 
 - Use Postman (import from `postman/` folder) to test endpoints directly.
 - In CLI, use "@" for quick access during chats.
 
+
 ## Prompts
 
 Prompts are reusable templates that guide the AI to produce consistent, high-quality responses for common tasks, reducing the need for users to write detailed instructions.
@@ -221,9 +220,10 @@ Prompts are reusable templates that guide the AI to produce consistent, high-qua
 
 **Learning Tip**: Prompts standardize AI behavior, making it easier to get professional results—like using a template for report generation in business apps.
 
+
 ## Learning Outcomes and Setup Guidance
 
-By following this README, you'll gain hands-on experience with MCP, enabling you to set up your own system. Key takeaways:
+By setting up this project following this README, you gained hands-on experience with MCP, enabling you to set up your own system. Key takeaways:
 
 - **Understanding MCP Primitives**: Learn how tools (actions), resources (data access), and prompts (templates) empower AI to perform real-world tasks.
 - **Building AI Agents**: Practice integrating LLMs with external systems for automation.
@@ -235,20 +235,5 @@ By following this README, you'll gain hands-on experience with MCP, enabling you
 2. **Customize Resources**: Integrate with databases or APIs in `mcp_server.py`.
 3. **Create Prompts**: Define templates for your needs and add them to the server.
 4. **Test and Iterate**: Use the CLI or Postman to experiment, then build your own client.
-
-## Contributing and Learning
-
-This project is a starting point for exploring MCP and AI agents. Feel free to extend it by:
-- Adding more tools (e.g., file upload, search)
-- Implementing prompts for common tasks
-- Integrating with other APIs
-
-For questions or improvements, refer to the code comments and documentation in the source files. To set up your own MCP:
-1. Start with a simple server like `mcp_server.py`.
-2. Define primitives in code.
-3. Build a client to connect them.
-4. Test with a CLI or web interface.
-
----
 
 Happy coding! If you have any issues, check the console output for errors related to API keys or server connections.
